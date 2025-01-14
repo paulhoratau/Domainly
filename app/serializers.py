@@ -40,3 +40,6 @@ class DomainSearchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Domain
         fields = ['domain']
+
+class WhoisSerializer(serializers.Serializer):
+    domain = serializers.CharField(max_length=255)

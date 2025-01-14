@@ -14,5 +14,6 @@ urlpatterns = [
     path('domain-create/', views.DomainCreate.as_view(), name='domain-create'),
     path('domain-detailed/', views.DomainCreate.as_view(), name='domain-detailed'),
     path('search/', views.DomainSearch.as_view(), name='domain-search'),
+    path('whois/', views.WhoisLookupView.as_view(), name='whois_lookup'),
 
 ]
