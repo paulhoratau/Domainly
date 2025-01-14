@@ -11,11 +11,20 @@ from rest_framework.response import Response
 import whois
 from rest_framework import status
 import subprocess
+User = get_user_model()
+from rest_framework.permissions import IsAuthenticated
 
 class CreateUserView(CreateAPIView):
     model = get_user_model()
     permission_classes = [permissions.AllowAny]
     serializer_class = UserSerializer
+
+class Profile(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
 
 class DomainCreate(generics.CreateAPIView):
     queryset = Domain.objects.all()

@@ -10,6 +10,7 @@ urlpatterns = [
     path('auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', views.CreateUserView.as_view(), name='register'),
+    path('profile/', views.Profile.as_view(), name='profile'),
 
     path('domain-create/', views.DomainCreate.as_view(), name='domain-create'),
     path('domain-detailed/', views.DomainCreate.as_view(), name='domain-detailed'),

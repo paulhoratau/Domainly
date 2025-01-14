@@ -9,7 +9,6 @@ UserModel = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)  # Ensure password is write-only
-
     def create(self, validated_data):
         # Create user with hashed password
         user = UserModel.objects.create_user(
@@ -20,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserModel
-        fields = ("id", "username", "password", )
+        fields = ("id", "username", "password")
 
 class DomainSerializer(serializers.ModelSerializer):
     domain = serializers.CharField(validators=[validate_domain, UniqueValidator(queryset=Domain.objects.all())])
