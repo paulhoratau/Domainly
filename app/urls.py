@@ -12,9 +12,10 @@ urlpatterns = [
     path('register/', views.CreateUserView.as_view(), name='register'),
     path('profile/', views.Profile.as_view(), name='profile'),
 
-    path('domain-create/', views.DomainCreate.as_view(), name='domain-create'),
-    path('domain-detailed/', views.DomainCreate.as_view(), name='domain-detailed'),
-    path('search/', views.DomainSearch.as_view(), name='domain-search'),
+    path('domains/register/', views.RegisterDomainAPIView.as_view(), name='domain-create'),
+    path('user/domains/', views.UserDomains.as_view(), name='user-domains'),
+
+    path('domains/search/', views.DomainSearch.as_view(), name='domain-search'),
     path('whois/', views.WhoisLookupView.as_view(), name='whois_lookup'),
 
 ]
